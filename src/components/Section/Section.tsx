@@ -18,7 +18,6 @@ const Section = ({
   buttonHref,
   isReverse = false,
 }: SectionProps) => {
-  console.log("SRC", src);
   return (
     <div
       className={clsx(
@@ -52,9 +51,9 @@ const Section = ({
             )}
           </Reveal>
 
-          {src !== null && (
+          {src && src !== null && (
             <Reveal className={styles["section__img"]} delay={0.16}>
-              <Image src={src} alt={alt} width={284} height={365.64} />
+              <Image src={src} alt={alt ?? ""} width={284} height={365.64} />
             </Reveal>
           )}
         </div>

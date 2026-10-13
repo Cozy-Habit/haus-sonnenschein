@@ -21,11 +21,12 @@ export default function SanityAboutPage({
         const body = resolveSanityLocalizedValue(section.body, lang);
         return (
           <Section
+            key={section._key}
             backgroundColor={index % 2 === 0 ? "creme" : "white"}
             title={resolveSanityText(section.heading, lang)}
-            text={<BodyRenderer body={body} key={section._key} />}
-            src={section.image.url}
-            alt={resolveSanityText(section.image.alt, lang)}
+            text={<BodyRenderer body={body} />}
+            src={section.image?.url}
+            alt={resolveSanityText(section.image?.alt, lang)}
             isReverse={index % 2 !== 0}
           />
         );

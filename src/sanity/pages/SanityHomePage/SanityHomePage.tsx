@@ -33,11 +33,12 @@ export default function SanityHomePage({
         const headline = resolveSanityText(section.heading, lang);
         return (
           <Section
+            key={section._key}
             backgroundColor={index % 2 === 0 ? "creme" : "white"}
             headline={headline}
-            text={<BodyRenderer body={body} key={section._key} />}
-            src={section.image.url}
-            alt={resolveSanityText(section.image.alt, lang)}
+            text={<BodyRenderer body={body} />}
+            src={section.image?.url}
+            alt={resolveSanityText(section.image?.alt, lang)}
             buttonText={resolveSanityText(section.callToActionLabel, lang)}
             buttonHref={section.callToActionUrl ?? undefined}
             isReverse={index % 2 !== 0}
