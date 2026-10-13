@@ -1,14 +1,9 @@
 "use client";
 
-import { Gallery, ColorfulText } from "@/components";
-import { useTranslation } from "@/i18n/LanguageProvider";
+import { useSanityPage } from "@/sanity/ContentProvider";
+import SanityPageRenderer from "@/sanity/SanityPageRenderer";
 
 export default function Raeumlichkeiten() {
-	const { t } = useTranslation();
-	return (
-		<>
-			<ColorfulText type="h1" text={t("premises.title")} />
-			<Gallery />
-		</>
-	);
+  const sanityPage = useSanityPage("galleryPage");
+  return sanityPage ? <SanityPageRenderer document={sanityPage} /> : null;
 }

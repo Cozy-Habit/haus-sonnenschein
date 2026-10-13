@@ -1,0 +1,38 @@
+.sectionWrapper {
+  padding: 64px 16px;
+
+  &:nth-child(odd) {
+    background-color: white;
+  }
+}
+
+.section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  img {
+    max-width: 400px;
+    height: 100%;
+  }
+
+  @media (min-width: 820px) {
+    width: 790px;
+  }
+
+  @media (max-width: 450px) {
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 450px) {
+    &__images {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  }
+}

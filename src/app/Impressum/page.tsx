@@ -1,34 +1,9 @@
 "use client";
 
-import { useTranslation } from "@/i18n/LanguageProvider";
-import styles from "./Impressum.module.scss";
-import { Typography, ColorfulText } from "@/components";
+import { useSanityPage } from "@/sanity/ContentProvider";
+import SanityPageRenderer from "@/sanity/SanityPageRenderer";
 
 export default function Impressum() {
-	const { t } = useTranslation();
-	return (
-		<div className={styles.impressum}>
-			<ColorfulText type="h1" text={t("legalNotice.title")} />
-			<div className={styles["impressum__container"]}>
-				<Typography type="h2">
-					{t("legalNotice.addressHeading")}
-				</Typography>
-				<Typography type="body-regular">
-					{t("legalNotice.name")}
-				</Typography>
-				<Typography type="body-regular">
-					{t("legalNotice.address")}
-				</Typography>
-				<Typography type="body-regular">
-					{t("legalNotice.phoneNumber")}
-				</Typography>
-				<Typography type="body-regular">
-					{t("legalNotice.email")}
-				</Typography>
-				<Typography type="body-regular">
-					{t("legalNotice.jobTitle")}
-				</Typography>
-			</div>
-		</div>
-	);
+  const sanityPage = useSanityPage("legalNoticePage");
+  return sanityPage ? <SanityPageRenderer document={sanityPage} /> : null;
 }
