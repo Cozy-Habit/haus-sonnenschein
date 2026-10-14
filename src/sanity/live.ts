@@ -8,7 +8,7 @@ if (!token) {
 }
 // export the sanityFetch helper and the SanityLive component
 export const { sanityFetch, SanityLive } = defineLive({
-  client,
+  client: client.withConfig({ stega: true }),
   serverToken: token,
   browserToken: token,
 });

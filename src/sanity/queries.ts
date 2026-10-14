@@ -1,4 +1,3 @@
-import { client } from "./client";
 import { defineQuery } from "groq";
 import type { SanityContent } from "./types";
 import { sanityFetch } from "./live";
