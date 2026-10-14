@@ -32,31 +32,6 @@ export type CareSection = {
   >;
 };
 
-export type SiteSettings = {
-  _id: string;
-  _type: "siteSettings";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  businessName?: string;
-  contactName?: string;
-  jobTitle?: string;
-  address?: string;
-  phone?: string;
-  email?: string;
-  openingHours?: Array<{
-    days?: string;
-    hours?: string;
-    note?: string;
-    _key: string;
-  }>;
-  socialLinks?: Array<{
-    label?: string;
-    url?: string;
-    _key: string;
-  }>;
-};
-
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -141,18 +116,6 @@ export type InternationalizedArrayString = Array<
     _key: string;
   } & InternationalizedArrayStringValue
 >;
-
-export type ContactPage = {
-  _id: string;
-  _type: "contactPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: InternationalizedArrayText;
-  introduction?: InternationalizedArrayText;
-  submitLabel?: InternationalizedArrayString;
-  successMessage?: InternationalizedArrayString;
-};
 
 export type CarePage = {
   _id: string;
@@ -386,7 +349,6 @@ export type Slug = {
 export type AllSanitySchemaTypes =
   | GalleryItemReference
   | CareSection
-  | SiteSettings
   | SanityImageAssetReference
   | Testimonial
   | SanityImageCrop
@@ -395,7 +357,6 @@ export type AllSanitySchemaTypes =
   | GalleryItem
   | LegalNoticePage
   | InternationalizedArrayString
-  | ContactPage
   | CarePage
   | InternationalizedArrayPortableText
   | GalleryPage
@@ -479,25 +440,6 @@ export type PAGE_CONTENT_QUERY_RESULT = Array<
           } | null;
         }> | null;
       }> | null;
-      sections: null;
-      testimonials: null;
-      galleryItems: null;
-    }
-  | {
-      _id: string;
-      _type: "contactPage";
-      legacyLanguage: null;
-      title: InternationalizedArrayText | null;
-      heroSubtitle: null;
-      submitLabel: InternationalizedArrayString | null;
-      successMessage: InternationalizedArrayString | null;
-      addressHeading: null;
-      contactName: null;
-      jobTitle: null;
-      address: null;
-      phone: null;
-      email: null;
-      careSections: null;
       sections: null;
       testimonials: null;
       galleryItems: null;
