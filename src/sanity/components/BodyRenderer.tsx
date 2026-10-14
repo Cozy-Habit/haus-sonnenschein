@@ -2,16 +2,9 @@ import { Typography } from "@/components";
 import { PortableText } from "@portabletext/react";
 import { InternationalizedArrayPortableText } from "../../../sanity.types";
 
-export default function BodyRenderer({
-  body,
-  key,
-}: {
-  body: any;
-  key?: string;
-}) {
+export default function BodyRenderer({ body }: { body: any; key?: string }) {
   return (
     <PortableText
-      key={key}
       value={body as never}
       components={{
         block: {
