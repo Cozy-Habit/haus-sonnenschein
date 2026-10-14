@@ -50,7 +50,15 @@ const PAGE_CONTENT_QUERY = defineQuery(`
 
 export async function fetchSanityContent(): Promise<SanityContent> {
   try {
-    return await client.fetch(PAGE_CONTENT_QUERY);
+    return await client.fetch(
+      PAGE_CONTENT_QUERY,
+      {},
+      {
+        next: {
+          tags: ["sanity-content"], // Must match the tag used in revalidateTag!
+        },
+      },
+    );
   } catch (error) {
     console.error(
       "Unable to fetch published Sanity content during build.",

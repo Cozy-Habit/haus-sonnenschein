@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
 
     // In Next.js 16, revalidateTag requires a cacheLife profile as the second argument
-    revalidateTag("sanity-content", "max");
+    revalidateTag("sanity-content", { expire: 0 });
 
     return NextResponse.json({ revalidated: true, now: Date.now() });
   } catch (err: any) {
