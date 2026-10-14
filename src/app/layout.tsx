@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Navbar, Footer } from "@/components";
 import Provider from "./Provider";
 import { fetchSanityContent } from "@/sanity/queries";
+import { SanityLive } from "@/sanity/live";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
           <Navbar />
           <main className={styles["layout__main"]}>{children}</main>
           <Footer />
+          <SanityLive />
         </body>
       </html>
     </Provider>
