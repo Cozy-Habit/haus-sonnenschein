@@ -1,6 +1,6 @@
 import { defineQuery } from "groq";
 import type { SanityContent } from "./types";
-import { sanityFetch } from "./live";
+import { client } from "./client";
 
 const PAGE_CONTENT_QUERY = defineQuery(`
 	*[_type match "*Page"]{
@@ -50,8 +50,7 @@ const PAGE_CONTENT_QUERY = defineQuery(`
 
 export async function fetchSanityContent(): Promise<SanityContent> {
   try {
-    const { data } = await sanityFetch({ query: PAGE_CONTENT_QUERY });
-    return data;
+    return await client.fetch(PAGE_CONTENT_QUERY);
   } catch (error) {
     console.error(
       "Unable to fetch published Sanity content during build.",

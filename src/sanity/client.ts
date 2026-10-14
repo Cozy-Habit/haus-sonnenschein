@@ -5,5 +5,4 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: "2026-10-12",
   useCdn: true,
-  token: process.env.SANITY_API_READ_TOKEN, // <--- WICHTIG für den Live-Stream!
 });
